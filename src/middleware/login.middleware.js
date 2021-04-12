@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const errorType = require('../error/error-type')
 const { getUsername } = require('../service/user.service')
-const { PUBLIC_KEY } = requier('../app/config')
+const { PUBLIC_KEY } = require('../app/config')
 
 const md5 = require('../util/md5')
 
@@ -39,6 +39,7 @@ const verifyLoginsus = async (ctx,next)=>{
     const result = jwt.verify(token,PUBLIC_KEY,{
       algorithms:['RS256']
     })
+    ctx.user = result
     await next()
   } catch (err) {
     const error = new Error(errorType.UNAUTHORIZATION)
