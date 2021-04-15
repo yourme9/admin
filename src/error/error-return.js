@@ -20,8 +20,12 @@ const errorHander = (error,ctx)=>{
       message = '密码输入错误'
       break
     case errorType.UNAUTHORIZATION:
-      status = 400
+      status = 401
       message = '无效的Token'
+      break
+    case errorType.UNPERMISSION:
+      status = 401
+      message = '不具备操作权限'
       break
     default:
       status = 404

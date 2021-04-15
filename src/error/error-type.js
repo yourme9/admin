@@ -3,10 +3,12 @@ const NAME_HAVING = '用户已经存在'
 const NOTNAME_HAVING = '用户名不存在'
 const PASSWORD_ERR = '密码错误'
 const UNAUTHORIZATION = '无效的Token'
+const UNPERMISSION = '不具备操作权限'
 module.exports = {
   NAME_PASSWORD_EMPTY,
   NAME_HAVING,
   NOTNAME_HAVING,
   PASSWORD_ERR,
-  UNAUTHORIZATION
+  UNAUTHORIZATION,
+  UNPERMISSION
 }
