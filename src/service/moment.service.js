@@ -18,8 +18,14 @@ class MomentService {
         WHERE m.id = ?
     `;
     const result = await connection.execute(statement,[id])
-
+    
     return result
+  }
+
+  async update(content, momentId) {
+    const statement = `UPDATE moment SET content = ? WHERE id = ?;`;
+    const [result] = await connection.execute(statement, [content, momentId]);
+    return result;
   }
 }
 
