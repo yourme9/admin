@@ -4,6 +4,7 @@ const bodyParser = require('koa-bodyparser');
 const userRouter = require('../router/user.router');
 const loginRouter = require('../router/login.router');
 const momentRouter = require('../router/moment.router');
+const fileRouter = require('../router/file.router');
 
 const  errorHander = require('../error/error-return');
 
@@ -22,6 +23,10 @@ app.use(loginRouter.allowedMethods())
 //内容管理
 app.use(momentRouter.routes())
 app.use(momentRouter.allowedMethods())
+
+//文件上传
+app.use(fileRouter.routes())
+app.use(fileRouter.allowedMethods())
 
 app.on('error',errorHander)
 
