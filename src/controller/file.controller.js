@@ -1,12 +1,16 @@
-class File {
+const { createAvatar } = require('../service/file.service')
+
+class Filecontroller {
   async saveAvatarInfo(ctx,next){
-    console.log(ctx.req.file);
-    const { mimetype , originalname} = ctx.req.file
-    console.log(mimetype);
-    console.log(originalname);
+    const {filename,mimetype,size} = ctx.req.file
+    const {id} = ctx.user
+    
+    const result = await createAvatar(filename,mimetype,size,id)
+    
+    ctx.body = result
   }
 }
 
 
 
-module.exports = new File()
+module.exports = new Filecontroller()
