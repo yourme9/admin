@@ -2,7 +2,7 @@ const Router =  require('Koa-router')
 
 const userRouter = new Router({prefix:'/users'})
 
-const { create } = require('../controller/user.controller')
+const { create , avatarInfo} = require('../controller/user.controller')
 const {verifyUser} = require('../middleware/user.middleware')
 const {cgpassword} = require('../middleware/user.middleware')
 
@@ -12,5 +12,5 @@ const {cgpassword} = require('../middleware/user.middleware')
 userRouter.post('/',verifyUser,cgpassword,create)
 
 //用户头像展示
-userRouter.get('/:userId')
+userRouter.get('/:userId/avatar',avatarInfo)
 module.exports = userRouter

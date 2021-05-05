@@ -16,7 +16,6 @@ class momentController {
   async query(ctx,next){
     const momentId = ctx.params.momentId
     const result = await query(momentId)
-    console.log(result);
     ctx.body = result[0]
   }
 
